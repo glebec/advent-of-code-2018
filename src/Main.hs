@@ -1,7 +1,7 @@
 module Main where
 
 import Day1.Chronal (totalOffset, firstDup)
-import Day2.Inventory (checkSum)
+import Day2.Inventory (checkSum, commonPart)
 
 main :: IO ()
 main = do
@@ -10,3 +10,4 @@ main = do
     print firstDup
     putStrLn "Day 2: Inventory Management System"
     print checkSum
+    print commonPart

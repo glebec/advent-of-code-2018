@@ -25,3 +25,20 @@ checkSum = uncurry (*) p2s_3s where
     inc2s_3s idx (_2s, _3s) =
         let (has2s, has3s) = (has2s_3s . countLetters) idx
         in (incIf has2s _2s, incIf has3s _3s)
+
+differBy1 :: String -> String -> Bool
+differBy1 s1 s2 = 2 `notElem` counts where
+    counts = scanl (+) 0 diffs
+    diffs = bool 0 1 <$> zipWith (/=) s1 s2
+
+theFabricIds :: (String, String)
+theFabricIds = head $ do
+    (i, idx) <- zip [0..] ids
+    idy <- snd $ splitAt (i + 1) ids
+    if differBy1 idx idy
+    then pure (idx, idy)
+    else []
+
+-- part 2 solution
+commonPart :: String
+commonPart = fst <$> filter (uncurry (==)) (uncurry zip theFabricIds)
