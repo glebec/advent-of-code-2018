@@ -4,8 +4,7 @@ module Day1.Input where
 
 import Text.RawString.QQ
 
-raw = [r|
--10
+raw = [r|-10
 -12
 +1
 +14
@@ -955,5 +954,4 @@ raw = [r|
 -21
 +8
 +14
-+75784
-|]
++75784|]
