@@ -1,6 +1,5 @@
 module Day1.Chronal where
 
-import Data.Maybe (fromMaybe)
 import qualified Data.Set as Set
 import Day1.Input (raw)
 
@@ -17,15 +16,12 @@ offsets = readOffset <$> lines raw
 totalOffset :: Int
 totalOffset = sum offsets
 
-offsetCycle :: [Int]
-offsetCycle = cycle offsets
-
 freqs :: [Int]
-freqs = scanl (+) 0 offsetCycle
+freqs = scanl (+) 0 (cycle offsets)
 
 -- this will find a duplicate or die trying (infinite search)
 findDupInf :: Ord a => [a] -> a
-findDupInf xs = go xs Set.empty where
+findDupInf ys = go ys Set.empty where
     go (x:xs) s = if Set.member x s then x
                   else go xs (Set.insert x s)
 
