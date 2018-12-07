@@ -1,3 +1,10 @@
+{-# LANGUAGE QuasiQuotes #-}
+
+module Day1.Input where
+
+import Text.RawString.QQ
+
+raw = [r|
 -10
 -12
 +1
@@ -949,3 +956,4 @@
 +8
 +14
 +75784
+|]
