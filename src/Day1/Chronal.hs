@@ -23,13 +23,12 @@ offsetCycle = cycle offsets
 freqs :: [Int]
 freqs = scanl (+) 0 offsetCycle
 
-findDup :: Ord a => [a] -> Maybe a
-findDup xs = go xs Set.empty where
-    go [] _ = Nothing
-    go (x:xs) s = if Set.member x s
-                  then Just x
+-- this will find a duplicate or die trying (infinite search)
+findDupInf :: Ord a => [a] -> a
+findDupInf xs = go xs Set.empty where
+    go (x:xs) s = if Set.member x s then x
                   else go xs (Set.insert x s)
 
 -- part 2 solution
 firstDup :: Int
-firstDup = fromMaybe 0 (findDup freqs)
+firstDup = findDupInf freqs
