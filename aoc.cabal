@@ -17,7 +17,15 @@ executable aoc
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
+  other-modules:       Day1.Chronal
+                     , Day1.Input
+                     , Day2.Input
+                     , Day2.Inventory
+                     , Day3.Input
+                     , Day3.Overlaps
   build-depends:       base >= 4.7 && < 5
                      , containers
                      , unordered-containers
                      , raw-strings-qq
+                     , parsers
+                     , trifecta
