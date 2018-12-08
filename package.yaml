@@ -1,0 +1,21 @@
+name: aoc
+version: '0.1.0.0'
+category: Web
+author: Gabriel Lebec
+maintainer: glebec@gmail.com
+copyright: 2018 Gabriel Lebec
+license: BSD3
+homepage: https://github.com/glebec/aoc#readme
+extra-source-files:
+    - README.md
+dependencies:
+    - base >=4.7 && <5
+    - containers
+    - unordered-containers
+    - raw-strings-qq
+    - parsers
+    - trifecta
+executables:
+    aoc:
+        main: Main.hs
+        source-dirs: src
