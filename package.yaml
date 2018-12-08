@@ -5,7 +5,7 @@ author: Gabriel Lebec
 maintainer: glebec@gmail.com
 copyright: 2018 Gabriel Lebec
 license: BSD3
-homepage: https://github.com/glebec/aoc#readme
+homepage: https://github.com/glebec/advent-of-code-2018#readme
 extra-source-files:
     - README.md
 dependencies:
