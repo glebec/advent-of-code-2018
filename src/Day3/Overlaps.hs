@@ -37,18 +37,18 @@ claims = catMaybes $ resToMaybe . parseString parseClaim mempty <$> claimsRaw
 type Cell = (Int, Int)
 type Fabric = M.Map Cell Int
 
-claimToCells :: Claim -> [Cell]
-claimToCells (Claim _ x y w h) = do
+getCells :: Claim -> [Cell]
+getCells (Claim _ x y w h) = do
     a <- [x..x + w - 1]
     b <- [y..h + y - 1]
     pure (a, b)
 
-addClaimToFabric :: Claim -> Fabric -> Fabric
-addClaimToFabric claims f = foldr addCell f (claimToCells claims) where
-    addCell cell = M.insertWith (+) cell 1
+addClaim :: Claim -> Fabric -> Fabric
+addClaim c f = foldr addCell f (getCells c) where
+    addCell xy = M.insertWith (+) xy 1
 
 fabric :: Fabric
-fabric = foldr addClaimToFabric M.empty claims
+fabric = foldr addClaim M.empty claims
 
 getOverlap :: Fabric -> Int
 getOverlap f = length $ filter (> 1) overlaps where
